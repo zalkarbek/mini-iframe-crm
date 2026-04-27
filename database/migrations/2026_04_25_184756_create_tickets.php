@@ -16,9 +16,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->string('title');
-            $table->mediumText('description');
-            $table->unsignedTinyInteger('status')->default(TicketStatusEnum::New->value);
+            $table->mediumText('content');
+            $table->unsignedTinyInteger('status')->default(TicketStatusEnum::New);
+            $table->datetime('manager_replied_at')->nullable();
             $table->timestamps();
+
+            $table->index('customer_id');
+            $table->index('status');
+            $table->index('created_at');
         });
     }
 
