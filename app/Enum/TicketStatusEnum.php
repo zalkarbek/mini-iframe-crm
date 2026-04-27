@@ -17,6 +17,15 @@ enum TicketStatusEnum: int
         };
     }
 
+    public static function values(): array
+    {
+        return [
+            self::New,
+            self::InProgress,
+            self::Processed,
+        ];
+    }
+
     public static function labels(): array
     {
         return [
